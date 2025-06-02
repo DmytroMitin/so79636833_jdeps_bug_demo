@@ -33,3 +33,7 @@ jobs:
         run: sbt run
       - name: Package code
         run: sbt package
+      - name: List directory target/scala-3.7.1
+        run: ls /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/target/scala-3.7.1
+      - name: Run jdeps
+        run: jdeps -s -R /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/target/scala-3.7.1/so79636833_jdeps_bug_demo_3-0.1.0-SNAPSHOT.jar /home/runner/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.1/scala3-library_3-3.7.1.jar /home/runner/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.16/scala-library-2.13.16.jar
