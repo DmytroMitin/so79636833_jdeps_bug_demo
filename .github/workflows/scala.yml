@@ -55,7 +55,7 @@ jobs:
           # unset JAVA_HOME_11_X64
           echo "$JAVA_HOME/bin" >> $GITHUB_PATH
           sudo rm /usr/bin/java
-          update-alternatives --config java
+          sudo update-alternatives --config java
           which java
           /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/jdk25/build/linux-x86_64-server-release/images/jdk/bin/java -version
         env:
