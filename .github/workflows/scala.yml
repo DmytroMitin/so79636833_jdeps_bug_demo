@@ -24,7 +24,8 @@ jobs:
         with:
           repository: 'DmytroMitin/jdk'
           ref: 'so79636833_jdeps_bug'
-          path: './build/linux-x86_64-server-release/images/jdk/bin'
+          path: './jdk25'
+          sparse-checkout: './build/linux-x86_64-server-release/images/jdk/bin'
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
@@ -47,6 +48,6 @@ jobs:
 #      - name: Run jdeps with details
 #        run: jdeps -R /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/target/scala-3.7.1/so79636833_jdeps_bug_demo_3-0.1.0-SNAPSHOT.jar /home/runner/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.1/scala3-library_3-3.7.1.jar /home/runner/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.16/scala-library-2.13.16.jar
       - name: List JDK 25 directory /bin
-        run: ls -R /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/build/linux-x86_64-server-release/images/jdk/bin
+        run: ls -R /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/jdk25/build/linux-x86_64-server-release/images/jdk/bin
       - name: Java version
-        run: /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/build/linux-x86_64-server-release/images/jdk/bin/java -version
+        run: /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/jdk25/build/linux-x86_64-server-release/images/jdk/bin/java -version
