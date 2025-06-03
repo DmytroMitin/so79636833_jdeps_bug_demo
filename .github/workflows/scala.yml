@@ -50,7 +50,7 @@ jobs:
 #      - name: List JDK 25 directory /bin
 #        run: ls -R /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/jdk25/build/linux-x86_64-server-release/images/jdk/bin
       - name: Set up Java 25
-        uses: DmytroMitin/setup-java@v0.1
+        uses: DmytroMitin/setup-java@v0.2
         with:
           distribution: 'custom'
           java-version: '25'
