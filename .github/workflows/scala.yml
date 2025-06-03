@@ -19,13 +19,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Checkout JDK 25 /bin
-        uses: actions/checkout@v4
-        with:
-          repository: 'DmytroMitin/jdk'
-          ref: 'so79636833_jdeps_bug'
-          path: './jdk25'
-          sparse-checkout: './build/linux-x86_64-server-release/images/jdk'
+#      - name: Checkout JDK 25 /bin
+#        uses: actions/checkout@v4
+#        with:
+#          repository: 'DmytroMitin/jdk'
+#          ref: 'so79636833_jdeps_bug'
+#          path: './jdk25'
+#          sparse-checkout: './build/linux-x86_64-server-release/images/jdk'
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
@@ -37,23 +37,23 @@ jobs:
           sbt-runner-version: 1.11.1
       - name: Compile code
         run: sbt clean compile
-#      - name: Run code
-#        run: sbt run
-#      - name: Package code
-#        run: sbt package
-#      - name: List directory target/scala-3.7.1
-#        run: ls /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/target/scala-3.7.1
-#      - name: Run jdeps
-#        run: jdeps -s -R /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/target/scala-3.7.1/so79636833_jdeps_bug_demo_3-0.1.0-SNAPSHOT.jar /home/runner/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.1/scala3-library_3-3.7.1.jar /home/runner/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.16/scala-library-2.13.16.jar
-#      - name: Run jdeps with details
-#        run: jdeps -R /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/target/scala-3.7.1/so79636833_jdeps_bug_demo_3-0.1.0-SNAPSHOT.jar /home/runner/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.1/scala3-library_3-3.7.1.jar /home/runner/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.16/scala-library-2.13.16.jar
+      - name: Run code
+        run: sbt run
+      - name: Package code
+        run: sbt package
+      - name: List directory target/scala-3.7.1
+        run: ls /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/target/scala-3.7.1
+      - name: Run jdeps
+        run: jdeps -s -R /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/target/scala-3.7.1/so79636833_jdeps_bug_demo_3-0.1.0-SNAPSHOT.jar /home/runner/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.1/scala3-library_3-3.7.1.jar /home/runner/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.16/scala-library-2.13.16.jar
+      - name: Run jdeps with details
+        run: jdeps -R /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/target/scala-3.7.1/so79636833_jdeps_bug_demo_3-0.1.0-SNAPSHOT.jar /home/runner/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.1/scala3-library_3-3.7.1.jar /home/runner/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.16/scala-library-2.13.16.jar
 #      - name: List JDK 25 directory /bin
 #        run: ls -R /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/jdk25/build/linux-x86_64-server-release/images/jdk/bin
       - name: Set up Java 25
         uses: DmytroMitin/setup-java@v0.2
         with:
-          distribution: 'custom'
-          java-version: '25'
+#          distribution: 'custom'
+#          java-version: '25'
           uri: 'https://github.com/DmytroMitin/jdk25/raw/refs/heads/main/jdk25.tar.gz'
       - name: Java version
         run: |
@@ -67,6 +67,8 @@ jobs:
           #sudo update-alternatives --set java /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/jdk25/build/linux-x86_64-server-release/images/jdk/bin/java
           #which java
           java -version
-          /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/jdk25/build/linux-x86_64-server-release/images/jdk/bin/java -version
-        env:
-          JAVA_HOME: /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/jdk25/build/linux-x86_64-server-release/images/jdk
+#          /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/jdk25/build/linux-x86_64-server-release/images/jdk/bin/java -version
+#        env:
+#          JAVA_HOME: /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/jdk25/build/linux-x86_64-server-release/images/jdk
+      - name: Run JDK 25 jdeps
+        run: jdeps -s -R /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/target/scala-3.7.1/so79636833_jdeps_bug_demo_3-0.1.0-SNAPSHOT.jar /home/runner/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.1/scala3-library_3-3.7.1.jar /home/runner/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.16/scala-library-2.13.16.jar
