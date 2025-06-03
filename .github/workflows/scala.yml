@@ -53,9 +53,9 @@ jobs:
         run: |
           which java
           # unset JAVA_HOME_11_X64
-          echo "$JAVA_HOME/bin" >> $GITHUB_PATH
-          sudo rm /usr/bin/java
-          # sudo update-alternatives --config java
+          # echo "$JAVA_HOME/bin" >> $GITHUB_PATH
+          # sudo rm /usr/bin/java
+          sudo update-alternatives --config java
           sudo update-alternatives --install /usr/bin/java java /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/jdk25/build/linux-x86_64-server-release/images/jdk/bin/java 10
           sudo update-alternatives --set java /home/runner/work/so79636833_jdeps_bug_demo/so79636833_jdeps_bug_demo/jdk25/build/linux-x86_64-server-release/images/jdk/bin/java
           which java
