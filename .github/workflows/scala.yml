@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Checkout jdk/bin
+        uses: actions/checkout@v4
         with:
           repository: 'DmytroMitin/jdk'
           ref: 'so79636833_jdeps_bug'
